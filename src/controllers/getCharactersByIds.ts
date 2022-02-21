@@ -10,7 +10,7 @@ export const getCharactersByIds: RequestHandler<Params, Return> = async (request
   
   const res = await makeHttpRequest<Character[]>({
     method: 'GET',
-    baseUrl: `https://rickandmortyapi.com/api/character/${ids}`
+    url: `/character/${ids}`
   });
 
   if (!res) {

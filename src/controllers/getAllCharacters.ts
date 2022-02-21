@@ -9,7 +9,7 @@ export const getAllCharacters: RequestHandler = async (request, response) => {
 
   const res = await makeHttpRequest<{ results: Character[] }>({
     method: 'GET',
-    baseUrl: `https://rickandmortyapi.com/api/character${query}`
+    url: `/character${query}`
   });
 
   if (!res) {

@@ -1,20 +1,24 @@
 import axios from 'axios';
 
 type Params = {
-  baseUrl: string;
+  url: string;
   method: 'POST' | 'PUT' | 'DELETE' | 'GET';
 }
 
-export const makeHttpRequest = async <T = any>({ baseUrl, method }: Params) => {
+const api = axios.create({
+  baseURL: 'https://rickandmortyapi.com/api'
+});
+
+export const makeHttpRequest = async <T = any>({ url, method }: Params) => {
   switch (method) {
     case 'DELETE':
-      return await axios.delete<T>(baseUrl);
+      return await api.delete<T>(url);
     case 'POST':
-      return await axios.post<T>(baseUrl);
+      return await api.post<T>(url);
     case 'PUT':
-      return await axios.put<T>(baseUrl);
+      return await api.put<T>(url);
     case 'GET':
-      return await axios.get<T>(baseUrl);
+      return await api.get<T>(url);
     default:
       break;
   }

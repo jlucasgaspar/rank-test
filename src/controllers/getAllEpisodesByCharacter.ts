@@ -9,7 +9,7 @@ export const getAllEpisodesByCharacter: RequestHandler<Params> = async (request,
 
   const res = await makeHttpRequest<Character>({
     method: 'GET',
-    baseUrl: `https://rickandmortyapi.com/api/character/${id}`
+    url: `/character/${id}`
   });
 
   if (!res) {
@@ -22,7 +22,7 @@ export const getAllEpisodesByCharacter: RequestHandler<Params> = async (request,
   
   const episodes = await makeHttpRequest({
     method: 'GET',
-    baseUrl: `https://rickandmortyapi.com/api/episode/${finalListIds}`
+    url: `/episode/${finalListIds}`
   });
 
   if (!episodes) {
